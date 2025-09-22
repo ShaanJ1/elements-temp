@@ -1,26 +1,17 @@
-# Use Node 20 Alpine for small image size
-FROM node:20-alpine
-
-# Install dependencies for building
-RUN apk add --no-cache git bash
-
-# Set working directory
+# Build
+FROM node:24-alpine AS builder
 WORKDIR /app
-
-# Copy package.json and package-lock.json first (for caching)
 COPY package*.json ./
-
-# Install dependencies
-RUN npm install
-
-# Copy the rest of the app
+RUN npm ci
 COPY . .
-
-# Build SvelteKit app
 RUN npm run build
 
-# Expose port that SvelteKit preview uses
+# Production
+FROM node:24-alpine
+WORKDIR /app
+COPY --from=builder /app/build build/
+COPY --from=builder /app/node_modules node_modules/
+COPY package.json .
 EXPOSE 3000
-
-# Run the app
-CMD ["npm", "run", "preview", "--", "--port", "3000", "--host"]
+ENV NODE_ENV=production
+CMD ["node", "build"]
