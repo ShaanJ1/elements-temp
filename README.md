@@ -7,8 +7,9 @@ npm run build
 npm run preview
 
 # Stack
-This website uses Svelte, SvelteKit, and TailwindCSS
+This website uses Svelte, SvelteKit, and TailwindCSS.
 Hosted on a ubuntu laptop managed using Coolify.
 
 Future plans:
 Add docker
+
