@@ -1,17 +1,17 @@
-# Build
-FROM node:24-alpine AS builder
+FROM node:20-alpine
+
+RUN apk add --no-cache git bash
+
 WORKDIR /app
+
 COPY package*.json ./
-RUN npm ci
+
+RUN npm install
+
 COPY . .
+
 RUN npm run build
 
-# Production
-FROM node:24-alpine
-WORKDIR /app
-COPY --from=builder /app/build build/
-COPY --from=builder /app/node_modules node_modules/
-COPY package.json .
 EXPOSE 3000
-ENV NODE_ENV=production
-CMD ["node", "build"]
+
+CMD ["npm", "run", "preview", "--", "--port", "3000", "--host"]
