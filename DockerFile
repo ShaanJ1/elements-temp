@@ -20,7 +20,7 @@ COPY . .
 RUN npm run build
 
 # Expose port that SvelteKit preview uses
-EXPOSE 4173
+EXPOSE 3000
 
 # Run the app
-CMD ["npm", "run", "preview", "--", "--port", "4173", "--host"]
+CMD ["npm", "run", "preview", "--", "--port", "3000", "--host"]
