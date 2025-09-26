@@ -8,7 +8,7 @@
 <svelte:head>
     <link rel="icon" href="/favicon.png" />
     <title>Elements Millwork & Flooring Inc.</title>
-    <meta name="description" content="Expert custom millwork, cabinetry, and furniture crafted with precision and care." />
+    <meta name="description" content="Expert custom millwork, cabinetry, and flooring crafted with precision and care." />
 </svelte:head>
 
 <div class="flex flex-col min-h-screen">

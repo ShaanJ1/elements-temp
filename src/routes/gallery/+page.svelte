@@ -6,7 +6,7 @@
         { id: 'all', name: 'All Projects', description: 'View all our work' },
         { id: 'custom-cabinets', name: 'Custom Cabinets', description: 'Handcrafted custom cabinetry' },
         { id: 'kitchens', name: 'Kitchens', description: 'Beautiful Kitchen Cabinets' },
-        { id: 'staircases', name: 'Staircases', description: 'Elegant staircase designs' }
+        { id: 'flooring', name: 'Flooring', description: 'Elegant flooring designs' }
     ];
 
     const images: GalleryImage[] = [

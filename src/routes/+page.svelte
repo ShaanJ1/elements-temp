@@ -12,13 +12,13 @@
         {
             src: '/images/gallery/project2.jpg',
             alt: 'Architectural Millwork',
-            title: 'Elegant Staircase',
+            title: 'Functional & Stylish Cabinets',
             description: 'Hand-crafted wooden details'
         },
         {
             src: '/images/gallery/project3.jpg',
-            alt: 'Custom Furniture',
-            title: 'Built-in Storage',
+            alt: 'New Flooring',
+            title: 'Flooring Installations',
             description: 'Space-saving solutions'
         }
     ];
@@ -35,7 +35,7 @@
                 Featured Projects
             </h2>
             <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-500">
-                Discover our latest custom millwork and furniture designs
+                Discover our latest custom millwork and flooring designs
             </p>
         </div>
 
@@ -105,9 +105,9 @@
                 <div class="text-indigo-600 mb-4">
                     <!-- Icon can be added here -->
                 </div>
-                <h3 class="text-xl font-bold text-gray-900">Custom Furniture</h3>
+                <h3 class="text-xl font-bold text-gray-900">Custom Flooring</h3>
                 <p class="mt-4 text-gray-500">
-                    Bespoke furniture pieces designed to your specifications
+                    Bespoke flooring pieces designed to your specifications
                 </p>
             </div>
         </div>

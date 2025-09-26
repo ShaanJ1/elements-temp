@@ -13,11 +13,11 @@
     <div class="relative">
         <div class="max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8">
             <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl">
-                <span class="block">Elements Millwork</span>
-                <span class="block text-indigo-200">Custom Craftsmanship</span>
+                <span class="block">Elements Millwork &</span>
+                <span class="block text-indigo-200">Flooring Inc.</span>
             </h1>
             <p class="mt-6 max-w-lg text-xl text-gray-300 sm:max-w-3xl">
-                Transforming spaces with exceptional custom millwork, cabinetry, and furniture. 
+                Transforming spaces with exceptional custom millwork, cabinetry, and flooring. 
                 Where quality meets design, and craftsmanship tells your story.
             </p>
             <div class="mt-10 flex gap-4">

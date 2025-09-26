@@ -7,7 +7,7 @@
             links: [
                 { href: '/services#cabinetry', label: 'Custom Cabinetry' },
                 { href: '/services#millwork', label: 'Architectural Millwork' },
-                { href: '/services#furniture', label: 'Custom Furniture' }
+                { href: '/services#flooring', label: 'Custom Flooring' }
             ]
         },
         {
@@ -35,7 +35,7 @@
                     Elements
                 </div>
                 <p class="text-gray-400 text-base">
-                    Crafting excellence in custom millwork and architectural elements since 2010.
+                    Crafting excellence in custom millwork and architectural elements since 2016.
                 </p>
                 <div class="flex space-x-6">
                     {#each socialLinks as { href, label, icon }}

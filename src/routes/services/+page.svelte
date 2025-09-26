@@ -29,14 +29,14 @@
             ]
         },
         {
-            title: "Custom Furniture",
-            description: "Bespoke furniture pieces designed and built to your exact specifications. Combining traditional craftsmanship with modern techniques.",
-            image: "/images/services/furniture.jpg",
-            id: "furniture",
+            title: "Custom Flooring",
+            description: "Bespoke flooring pieces designed and built to your exact specifications. Combining traditional craftsmanship with modern techniques.",
+            image: "/images/services/flooring.jpg",
+            id: "flooring",
             features: [
                 "Dining tables",
                 "Conference tables",
-                "Office furniture",
+                "Office & Home Flooring",
                 "Built-in seating",
                 "Custom shelving"
             ]
