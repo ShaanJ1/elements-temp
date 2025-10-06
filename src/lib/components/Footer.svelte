@@ -46,7 +46,7 @@
 						<a {href} class="text-gray-400 hover:text-gray-300">
 							<span class="sr-only">{label}</span>
 							<div class="h-6 w-6 select-none text-gray-400 transition-colors hover:text-white">
-								<img src={`src/lib/assets/icons/${icon}`} alt={label} draggable="false" />
+								<img src={`icons/${icon}`} alt={label} draggable="false" />
 							</div>
 						</a>
 					{/each}

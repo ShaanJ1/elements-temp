@@ -15,3 +15,5 @@ export const actions = {
         // setup emailing later and add protection against xxs attacks
     }
 } satisfies Actions;
+
+export const prerender = false;
