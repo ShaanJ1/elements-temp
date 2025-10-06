@@ -1,11 +1,10 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import { themeManager, setPresetTheme } from '../utils/theme';
 	import { getAvailableThemes, getDefaultTheme } from '../config/themes';
 	import type { ThemePreset } from '../config/themes';
 
-	let currentTheme: string = getDefaultTheme();
-	let isOpen = false;
+	let currentTheme = $state<string>(getDefaultTheme());
+	let isOpen = $state(false);
 
 	// Get all themes from centralized configuration
 	const themes = getAvailableThemes().map(({ name, config }) => ({
@@ -15,7 +14,7 @@
 		description: config.description
 	}));
 
-	onMount(() => {
+	$effect(() => {
 		// Initialize theme on mount
 		themeManager.initializeTheme();
 		currentTheme = themeManager.loadThemePreference() || getDefaultTheme();
@@ -30,7 +29,7 @@
 
 <div class="relative">
 	<button
-		on:click={() => (isOpen = !isOpen)}
+		onclick={() => (isOpen = !isOpen)}
 		class="flex h-6 w-6 items-center justify-center rounded-full border-2 border-gray-500 text-gray-400 transition-colors hover:border-gray-300 hover:text-white"
 		aria-label="Change theme"
 	>
@@ -48,7 +47,7 @@
 			<div class="py-1">
 				{#each themes as theme}
 					<button
-						on:click={() => handleThemeChange(theme.name)}
+						onclick={() => handleThemeChange(theme.name)}
 						class="flex w-full items-center space-x-3 px-3 py-2 text-left transition-colors hover:bg-background-alt {currentTheme ===
 						theme.name
 							? 'bg-primary-lighter'
@@ -78,7 +77,7 @@
 		class="fixed inset-0 z-40"
 		role="button"
 		tabindex="-1"
-		on:click={() => (isOpen = false)}
-		on:keydown={(e) => e.key === 'Escape' && (isOpen = false)}
+		onclick={() => (isOpen = false)}
+		onkeydown={(e) => e.key === 'Escape' && (isOpen = false)}
 	></div>
 {/if}

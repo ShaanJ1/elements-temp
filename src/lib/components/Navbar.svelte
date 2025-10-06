@@ -1,6 +1,7 @@
 <script lang="ts">
+	import { page } from '$app/state';
 	import type { NavLink } from '$lib/types';
-	import { onMount } from 'svelte';
+	import path from 'path';
 
 	const links: NavLink[] = [
 		{ href: '/', label: 'Home' },
@@ -10,20 +11,25 @@
 		{ href: '/contact-us', label: 'Contact Us' }
 	];
 
-	let isOpen = false;
-	let scrollY = 0;
-	let isScrolled = false;
+	let isOpen = $state(false);
+	let scrollY = $state(0);
+	let isScrolled = $derived(scrollY > 20);
 
-	onMount(() => {
-		window.addEventListener('scroll', () => {
+	$effect(() => {
+		const handleScroll = () => {
 			scrollY = window.scrollY;
-			isScrolled = scrollY > 20;
-		});
+		};
+
+		window.addEventListener('scroll', handleScroll);
+
+		return () => {
+			window.removeEventListener('scroll', handleScroll);
+		};
 	});
 </script>
 
 <nav
-	class="fixed z-50 w-full bg-background/95 backdrop-blur-sm transition-all duration-200"
+	class="bg-background/95 fixed z-50 w-full backdrop-blur-sm transition-all duration-200"
 	class:shadow-lg={isScrolled}
 >
 	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -38,11 +44,17 @@
 			</div>
 
 			<!-- Desktop menu -->
-			<div class="hidden sm:ml-6 sm:flex sm:items-center sm:space-x-4">
+			<div class="hidden sm:ml-6 sm:flex sm:items-center sm:space-x-4 group">
 				{#each links as link}
 					<a
 						href={link.href}
-						class="px-3 py-2 text-sm font-medium text-text-primary transition-colors hover:text-primary"
+						class="relative px-3 py-2 text-sm font-medium text-text-primary no-underline transition-colors
+                            after:absolute
+                            after:-bottom-0.5 after:left-0 after:h-[2px] after:w-0
+                            after:bg-current after:transition-all after:duration-200 after:content-[''] hover:text-primary
+                            hover:after:w-full
+                            aria-[current=page]:after:w-full
+                            {page.url.pathname === link.href ? 'after:w-full' : 'after:w-0 hover:after:w-full'}"
 					>
 						{link.label}
 					</a>
@@ -54,7 +66,7 @@
 				<button
 					type="button"
 					class="inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-					on:click={() => (isOpen = !isOpen)}
+					onclick={() => (isOpen = !isOpen)}
 				>
 					<span class="sr-only">Open main menu</span>
 					{#if !isOpen}
@@ -89,7 +101,7 @@
 					<a
 						href={link.href}
 						class="block px-3 py-2 text-base font-medium text-text-primary hover:bg-background-alt hover:text-primary"
-						on:click={() => (isOpen = false)}
+						onclick={() => (isOpen = false)}
 					>
 						{link.label}
 					</a>

@@ -106,10 +106,10 @@
   `}
 </svelte:head>
 
-<div class="bg-white">
+<div class="bg-background-alt">
 	<div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
 		<div class="text-center">
-			<h1 class="text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
+			<h1 class="text-4xl font-extrabold text-text-primary sm:text-5xl sm:tracking-tight lg:text-6xl">
 				About Elements Millwork & Flooring
 			</h1>
 			<p class="mx-auto mt-5 max-w-xl text-xl text-gray-500">Crafting excellence since 2016.</p>
@@ -117,9 +117,9 @@
 
 		<!-- Mission Statement -->
 		<div class="mt-16">
-			<div class="overflow-hidden rounded-lg bg-gray-50">
+			<div class="overflow-hidden rounded-lg bg-background-light shadow border border-border">
 				<div class="px-4 py-5 sm:p-6">
-					<h2 class="text-3xl font-bold text-gray-900">Our Mission</h2>
+					<h2 class="text-3xl font-bold text-text-primary">Our Mission</h2>
 					<p class="mt-4 text-lg text-gray-500">{companyInfo.mission}</p>
 				</div>
 			</div>
@@ -129,10 +129,10 @@
 		<div class="mt-16">
 			<dl class="grid grid-cols-1 gap-5 sm:grid-cols-3">
 				{#each stats as stat}
-					<div class="overflow-hidden rounded-lg bg-white shadow">
+					<div class="overflow-hidden rounded-lg bg-background-light shadow border border-border">
 						<div class="px-4 py-5 sm:p-6">
-							<dt class="truncate text-sm font-medium text-gray-500">{stat.name}</dt>
-							<dd class="mt-1 text-3xl font-semibold text-gray-900">{stat.value}</dd>
+							<dt class="truncate text-sm font-medium text-secondary">{stat.name}</dt>
+							<dd class="mt-1 text-3xl font-semibold text-text-primary">{stat.value}</dd>
 						</div>
 					</div>
 				{/each}
@@ -141,12 +141,12 @@
 
 		<!-- Values Section -->
 		<div class="mt-16">
-			<h2 class="text-center text-3xl font-bold text-gray-900">Our Values</h2>
+			<h2 class="text-center text-3xl font-bold text-text-primary">Our Values</h2>
 			<div class="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
 				{#each values as value}
-					<div class="rounded-lg bg-white px-6 py-8 shadow-lg">
-						<h3 class="text-xl font-bold text-gray-900">{value.name}</h3>
-						<p class="mt-4 text-gray-500">{value.description}</p>
+					<div class="rounded-lg bg-background-light px-6 py-8 shadow-lg border border-border">
+						<h3 class="text-xl font-bold text-text-primary">{value.name}</h3>
+						<p class="mt-4 text-secondary">{value.description}</p>
 					</div>
 				{/each}
 			</div>

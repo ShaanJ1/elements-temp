@@ -7,22 +7,22 @@
 
 	const featuredProjects = [
 		{
-			src: '/images/gallery/project1.jpg',
+			src: '/images/images/featured/modern-kitchen.jpg',
 			alt: 'Custom Kitchen Cabinets',
 			title: 'Modern Kitchen Design',
 			description: 'Custom cabinetry with premium finishes'
 		},
 		{
-			src: '/images/gallery/project2.jpg',
+			src: '/images/images/featured/cabinets.jpg',
 			alt: 'Architectural Millwork',
 			title: 'Functional & Stylish Cabinets',
-			description: 'Hand-crafted wooden details'
+			description: 'lorem ipsum dolor sit amet'
 		},
 		{
-			src: '/images/gallery/project3.jpg',
+			src: '/images/images/featured/flooring.jpg',
 			alt: 'New Flooring',
 			title: 'Flooring Installations',
-			description: 'Space-saving solutions'
+			description: 'Lorem ipsum dolor sit amet'
 		}
 	];
 </script>
@@ -123,39 +123,39 @@
 </section>
 
 <!-- Services Overview -->
-<section class="bg-white py-16">
+<section class="bg-background-light py-16">
 	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 		<div class="text-center">
-			<h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">Our Services</h2>
+			<h2 class="text-3xl font-extrabold text-text-primary sm:text-4xl">Our Services</h2>
 			<p class="mx-auto mt-4 max-w-2xl text-xl text-gray-500">
 				Expert craftsmanship for all your millwork needs
 			</p>
 		</div>
 
 		<div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-			<div class="rounded-lg bg-gray-50 p-8 text-center">
+			<div class="rounded-lg p-8 text-center border border-border bg-background shadow-lg">
 				<div class="mb-4 text-indigo-600">
 					<!-- Icon can be added here -->
 				</div>
-				<h3 class="text-xl font-bold text-gray-900">Custom Cabinetry</h3>
+				<h3 class="text-xl font-bold text-text-primary">Custom Cabinetry</h3>
 				<p class="mt-4 text-gray-500">
 					Lorem ipsum dolor, sit amet consectetur adipisicing elit.
 				</p>
 			</div>
 
-			<div class="rounded-lg bg-gray-50 p-8 text-center">
+			<div class="rounded-lg p-8 text-center border border-border bg-background shadow-lg">
 				<div class="mb-4 text-indigo-600">
 					<!-- Icon can be added here -->
 				</div>
-				<h3 class="text-xl font-bold text-gray-900">Architectural Millwork</h3>
+				<h3 class="text-xl font-bold text-text-primary">Architectural Millwork</h3>
 				<p class="mt-4 text-gray-500">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
 			</div>
 
-			<div class="rounded-lg bg-gray-50 p-8 text-center">
+			<div class="rounded-lg p-8 text-center border border-border bg-background shadow-lg">
 				<div class="mb-4 text-indigo-600">
 					<!-- Icon can be added here -->
 				</div>
-				<h3 class="text-xl font-bold text-gray-900">Custom Flooring</h3>
+				<h3 class="text-xl font-bold text-text-primary">Custom Flooring</h3>
 				<p class="mt-4 text-gray-500">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
 			</div>
 		</div>

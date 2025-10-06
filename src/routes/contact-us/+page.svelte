@@ -6,16 +6,16 @@
 	const baseUrl = 'https://starry-faustina-unceriferous.ngrok-free.dev';
 	const url = `${baseUrl}${page.url.pathname}`;
 
-	let formData: ContactFormData = {
+	let formData = $state<ContactFormData>({
 		name: '',
 		email: '',
 		phone: '',
 		message: ''
-	};
+	});
 
-	let loading = false;
-	let success = false;
-	let error: string | null = null;
+	let loading = $state(false);
+	let success = $state(false);
+	let error = $state<string | null>(null);
 
 	const Hours: Hours = {
 		Sunday: 'Closed',

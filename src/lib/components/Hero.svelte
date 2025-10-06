@@ -3,7 +3,7 @@
 	<div class="absolute inset-0">
 		<img
 			class="h-full w-full object-cover"
-			src="/images/hero-bg.jpg"
+			src="/images/images/hero/hero-image.webp"
 			alt="Custom millwork workshop"
             fetchpriority="high"
 		/>

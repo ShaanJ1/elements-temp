@@ -1,37 +1,30 @@
 <script lang="ts">
 	import type { GalleryImage, GalleryCategory } from '$lib/types';
 	import { page } from '$app/state';
+	import MasonryGrid from '$lib/components/MasonryGrid.svelte';
+	import { fade } from 'svelte/transition';
+
+	// Get server-side loaded data
+	const { data } = $props<{ data: { images: GalleryImage[] } }>();
 
 	const baseUrl = 'https://starry-faustina-unceriferous.ngrok-free.dev';
 	const url = `${baseUrl}${page.url.pathname}`;
 
 	const categories: GalleryCategory[] = [
-		{ id: 'all', name: 'All Projects', description: 'View all our work' },
-		{ id: 'custom-cabinets', name: 'Custom Cabinets', description: 'Handcrafted custom cabinetry' },
-		{ id: 'kitchens', name: 'Kitchens', description: 'Beautiful Kitchen Cabinets' },
-		{ id: 'flooring', name: 'Flooring', description: 'Elegant flooring designs' }
+		{ id: 'all', name: 'All Projects' },
+		{ id: 'cabinets', name: 'Cabinets' },
+		{ id: 'kitchen', name: 'Kitchens' },
+		{ id: 'custom', name: 'Custom' },
+		{ id: 'flooring', name: 'Flooring' }
 	];
 
-	const images: GalleryImage[] = [
-		{
-			src: '/images/gallery/cabinet-1.jpg',
-			alt: 'Custom Kitchen Cabinet',
-			title: 'Modern Kitchen Cabinets',
-			description: 'Custom white kitchen cabinets with marble countertops',
-			category: 'custom-cabinets'
-		}
-		// Add more images here or use imageloader.ts
-	];
+	// Use server-loaded images (automatically discovers all images)
+	const images: GalleryImage[] = data.images;
 
-	let selectedCategory = 'all';
-	let filteredImages = images;
-
-	$: {
-		filteredImages =
-			selectedCategory === 'all'
-				? images
-				: images.filter((img) => img.category === selectedCategory);
-	}
+    let selectedCategory = $state('all');
+	let filteredImages = $derived(
+		selectedCategory === 'all' ? images : images.filter((img) => img.category === selectedCategory)
+	);
 
 	function selectCategory(categoryId: string) {
 		selectedCategory = categoryId;
@@ -96,11 +89,11 @@
 			<div class="flex flex-wrap justify-center gap-4">
 				{#each categories as category}
 					<button
-						class="rounded-full px-4 py-2 text-sm font-medium
+						class="rounded-full px-4 py-2 text-sm font-medium transition-all duration-200
                             {selectedCategory === category.id
-							? 'bg-indigo-600 text-white'
-							: 'bg-gray-100 text-gray-800 hover:bg-gray-200'}"
-						on:click={() => selectCategory(category.id)}
+							? 'bg-indigo-600 text-white shadow-lg scale-105'
+							: 'bg-gray-100 text-gray-800 hover:bg-gray-200 hover:scale-105'}"
+						onclick={() => selectCategory(category.id)}
 					>
 						{category.name}
 					</button>
@@ -108,34 +101,19 @@
 			</div>
 		</div>
 
-		<!-- Image Grid -->
-		<div class="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
-			{#each filteredImages as image}
-				<div class="group relative">
-					<div class="aspect-w-4 aspect-h-3 w-full overflow-hidden rounded-lg bg-gray-200">
-						<img
-							src={image.src}
-							alt={image.alt}
-							class="h-full w-full object-cover object-center transition-opacity duration-300 group-hover:opacity-75"
-						/>
-					</div>
-					<div class="mt-4 flex justify-between">
-						<div>
-							<h3 class="text-sm text-gray-700">
-								<span aria-hidden="true" class="absolute inset-0"></span>
-								{image.title}
-							</h3>
-							<p class="mt-1 text-sm text-gray-500">{image.description}</p>
-						</div>
-					</div>
+		<!-- Masonry Grid -->
+		<div class="mt-16">
+			{#key selectedCategory}
+				<div in:fade={{ duration: 200, delay: 100 }} out:fade={{ duration: 150 }}>
+					<MasonryGrid images={filteredImages} />
 				</div>
-			{/each}
+			{/key}
 		</div>
 
 		<!-- Empty State -->
 		{#if filteredImages.length === 0}
-			<div class="py-12 text-center">
-				<p class="text-gray-500">No images found in this category.</p>
+			<div class="py-12 text-center" in:fade={{ duration: 300 }}>
+				<p class="text-gray-500">No images found for this category.</p>
 			</div>
 		{/if}
 	</div>
