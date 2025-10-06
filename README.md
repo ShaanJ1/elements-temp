@@ -8,8 +8,7 @@ npm run preview
 
 # Stack
 This website uses Svelte, SvelteKit, and TailwindCSS.
-Hosted on a ubuntu laptop managed using Coolify.
+Hosted on a ubuntu laptop managed using Coolify and ngrok.
 
 Future plans:
-
-
+Optimize images
