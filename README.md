@@ -12,4 +12,3 @@ Hosted on a ubuntu laptop managed using Coolify.
 
 Future plans:
 Add docker
-
