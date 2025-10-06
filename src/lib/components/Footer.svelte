@@ -43,7 +43,7 @@
 				</p>
 				<div class="flex space-x-6">
 					{#each socialLinks as { href, label, icon }}
-						<a {href} class="text-gray-400 hover:text-gray-300">
+						<a {href} target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-300">
 							<span class="sr-only">{label}</span>
 							<div class="h-6 w-6 select-none text-gray-400 transition-colors hover:text-white">
 								<img src={`icons/${icon}`} alt={label} draggable="false" />

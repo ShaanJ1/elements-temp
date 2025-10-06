@@ -92,10 +92,16 @@ export class ThemeManager {
         if (saved && isValidTheme(saved)) {
             this.applyPresetTheme(saved);
         } else {
-            // Default to warm-timber theme for flooring business
             // Check system preference for dark mode
             const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            this.applyPresetTheme(prefersDark ? 'dark' : getDefaultTheme());
+            // If user prefers dark mode and hasn't set a preference, apply dark theme
+            // Otherwise, keep the default light theme that's already set in CSS
+            if (prefersDark) {
+                this.applyPresetTheme('dark');
+            } else {
+                // Apply light theme to ensure consistency with saved preference
+                this.applyPresetTheme(getDefaultTheme());
+            }
         }
     }
 }

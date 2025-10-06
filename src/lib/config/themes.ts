@@ -182,7 +182,7 @@ export const getThemeColors = (themeName: ThemePreset): ThemeColors => {
  * Get default theme name
  */
 export const getDefaultTheme = (): ThemePreset => {
-    return 'light'; // Default for flooring business
+    return 'light';
 };
 
 /**
