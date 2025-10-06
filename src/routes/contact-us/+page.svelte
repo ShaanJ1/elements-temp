@@ -1,6 +1,10 @@
 <script lang="ts">
 	import type { ContactFormData, Hours } from '$lib/types';
 	import { enhance } from '$app/forms';
+	import { page } from '$app/state';
+
+	const baseUrl = 'https://starry-faustina-unceriferous.ngrok-free.dev';
+	const url = `${baseUrl}${page.url.pathname}`;
 
 	let formData: ContactFormData = {
 		name: '',
@@ -23,6 +27,50 @@
 		Saturday: 'Closed'
 	};
 </script>
+
+<!-- replace https://starry-faustina-unceriferous.ngrok-free.dev with https://emfinc.ca when uploading to the real site -->
+<svelte:head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Contact Us | Elements Millwork & Flooring</title>
+	<meta name="description" content="" />
+	<link rel="canonical" href="https://starry-faustina-unceriferous.ngrok-free.dev/contact-us" />
+	<link rel="icon" href="/favicon.png" type="image/png" />
+
+	<!-- Open Graph -->
+	<meta property="og:site_name" content="Elements Millwork & Flooring" />
+	<meta property="og:title" content="Contact Us | Elements Millwork & Flooring" />
+	<meta property="og:description" content="Get in touch with us " />
+	<meta property="og:url" content={url} />
+	<meta property="og:type" content="website" />
+	<meta
+		property="og:image"
+		content="https://starry-faustina-unceriferous.ngrok-free.dev/images/gallery/cabinet-1.jpg"
+	/>
+
+	<!-- Twitter -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="Contact Us | Elements Millwork & Flooring" />
+	<meta name="twitter:description" content="" />
+	<meta
+		name="twitter:image"
+		content="https://starry-faustina-unceriferous.ngrok-free.dev/images/gallery/cabinet-1.jpg"
+	/>
+	<meta property="twitter:url" content={url} />
+
+	<!-- JSON-LD structured data -->
+	{@html `
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "name": "Elements Millwork & Flooring Inc.",
+      "url": ${url},
+      "logo": "https://starry-faustina-unceriferous.ngrok-free.dev/favicon.png"
+    }
+    </script>
+  `}
+</svelte:head>
 
 <div class="bg-white px-4 py-16 sm:px-6 lg:px-8">
 	<div class="mx-auto max-w-7xl">
@@ -163,17 +211,19 @@
 						<dt class="text-sm font-medium text-gray-500">Hours:</dt>
 						<dd class="mt-1 text-base text-gray-900">
 							{#each Object.entries(Hours) as [day, time]}
-								<div class="flex gap-2"> <!-- Days will line up with the lines -->
+								<div class="flex gap-2">
+									<!-- Days will line up with the lines -->
 									<span class="w-24 font-medium">{day}:</span>
 									<span>{time}</span>
 								</div>
 							{/each}
 						</dd>
-						<dd class="mt-3 text-base text-sm font-small italic text-gray-800">Closed on Major Holidays*</dd>
+						<dd class="font-small mt-3 text-base text-sm italic text-gray-800">
+							Closed on Major Holidays*
+						</dd>
 					</div>
 				</dl>
 			</div>
 		</div>
 	</div>
 </div>
-

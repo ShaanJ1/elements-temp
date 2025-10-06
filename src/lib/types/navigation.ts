@@ -11,4 +11,5 @@ export interface FooterSection {
 
 export interface SocialLink extends NavLink {
     icon: string;
+    alt: string;
 }
