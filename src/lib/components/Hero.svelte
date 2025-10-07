@@ -15,7 +15,7 @@
 		<div class="mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
 			<h1 class="text-4xl font-extrabold tracking-tight text-text-inverse sm:text-5xl md:text-6xl">
 				<span class="block text-white">Elements Millwork &</span>
-				<span class="block text-primary-light">Flooring Inc.</span>
+				<span class="block text-white">Flooring Inc.</span>
 			</h1>
 			<p class="mt-6 max-w-lg text-xl text-text-muted sm:max-w-3xl">
 				Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi aliquam hic expedita amet maxime, aut veritatis, nesciunt voluptatem in at.

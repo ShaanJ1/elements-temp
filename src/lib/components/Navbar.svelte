@@ -29,7 +29,7 @@
 </script>
 
 <nav
-	class="bg-background/95 fixed z-50 w-full backdrop-blur-sm transition-all duration-200"
+	class="bg-white fixed z-50 w-full transition-all duration-200"
 	class:shadow-lg={isScrolled}
 >
 	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -44,7 +44,7 @@
 			</div>
 
 			<!-- Desktop menu -->
-			<div class="hidden sm:ml-6 sm:flex sm:items-center sm:space-x-4 group">
+			<div class="hidden sm:ml-6 sm:flex sm:items-center background-background-primary sm:space-x-4 group"> 
 				{#each links as link}
 					<a
 						href={link.href}
